@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+<h1>all of the Car database entries</h1>
+<form action="{% url 'index' %}" method="post">
+    {% csrf %}
+
+    {{newCarData}}
+
+
+</form>
+
+</body>
+</html>
