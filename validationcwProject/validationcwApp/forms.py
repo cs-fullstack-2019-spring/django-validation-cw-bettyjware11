@@ -1,11 +1,11 @@
 from django import forms
 from .models import newCarModel
-
+# class for new cars
 class newCarForm(forms.ModelForm):
     class Meta:
         model = newCarModel
         fields = "__all__"
-
+    # function defines what clean car mileage is...otherwise kicks out error
     def clean_goodCarMileage(self):
         mpg = self.cleaned_data["goodCarMileage"]
 
@@ -17,7 +17,7 @@ class newCarForm(forms.ModelForm):
             raise forms.ValidationError("That's impossible (in 2019)")
 
         return mpg
-
+    # function defines what clean year data is...otherwise throws out an error
     def clean_goodCarYear(self):
         year = self.cleaned_data["goodCarYear"]
 

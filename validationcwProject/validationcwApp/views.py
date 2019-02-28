@@ -3,12 +3,14 @@ from django.shortcuts import HttpResponse
 from .forms import newCarForm
 from .models import newCarModel
 
-# function used to test server
+# function lists all new cars
 def index(request):
-    return HttpResponse("made it")
+    allnewcars = newCarModel.objects.all()
+    return render(request, "validationcwApp/index.html", {'car_list': allnewcars})
+    # return HttpResponse('made it')
 
-# If data is clean print new entry
-def newCar(request):
+# If data is clean this function will print new entry
+def newcars(request):
     if(request.method == "post"):
         form = newCarForm(request.POST)
         if(form.is_valid()):

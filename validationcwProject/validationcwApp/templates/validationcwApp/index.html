@@ -7,11 +7,16 @@
 <body>
 <h1>all of the Car database entries</h1>
 <form action="{% url 'index' %}" method="post">
-    {% csrf %}
+    {% csrf_token  %}
+    {% for cars in car_list %}
+    <p>{{newCarData.make}}</p>
+    <p>{{newCarData.model}}</p>
+    <p>{{newCarData.year}}</p>
+    <p>{{newCarData.mpg}}</p>
 
-    {{newCarData}}
-
-
+<a href="{% url 'CONGRATS' %}">Send to Congrats!</a>
+    {% endfor %}
+<input type="submit">Submit</input>
 </form>
 
 </body>
